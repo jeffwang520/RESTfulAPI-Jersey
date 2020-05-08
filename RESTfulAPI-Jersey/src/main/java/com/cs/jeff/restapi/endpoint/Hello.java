@@ -20,6 +20,12 @@ import javax.ws.rs.core.MediaType;
 @Path("/hello")
 public class Hello {
 
+    public Hello() {
+
+        System.out.println("In Hello()");
+        // TODO Auto-generated constructor stub
+    }
+
     // This method is called if TEXT_PLAIN is request
     @GET
     @Produces(MediaType.TEXT_PLAIN)

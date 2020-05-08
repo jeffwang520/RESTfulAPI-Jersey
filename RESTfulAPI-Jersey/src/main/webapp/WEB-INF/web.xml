@@ -1,29 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://java.sun.com/xml/ns/javaee"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-	version="2.5">
-	<display-name>RESTfulAPI-Jersey</display-name>
-	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
-		<welcome-file>index.htm</welcome-file>
-		<welcome-file>index.jsp</welcome-file>
-		<welcome-file>default.html</welcome-file>
-		<welcome-file>default.htm</welcome-file>
-		<welcome-file>default.jsp</welcome-file>
-	</welcome-file-list>
-	<servlet>
-		<servlet-name>Jersey REST Service</servlet-name>
-		<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
-		<!-- Register resources and providers under com.vogella.jersey.first package. -->
-		<init-param>
-			<param-name>jersey.config.server.provider.packages</param-name>
-			<param-value>com.cs.jeff.restapi.endpoint,com.cs.jeff.restapi.filter</param-value>
-		</init-param>
-		<load-on-startup>1</load-on-startup>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>Jersey REST Service</servlet-name>
-		<url-pattern>/V1/*</url-pattern>
-	</servlet-mapping>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <display-name>RESTfulAPI-Jersey</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>Jersey REST Service</servlet-name>
+    <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+    <init-param>
+      <param-name>jersey.config.server.provider.packages</param-name>
+      <param-value>com.cs.jeff.restapi.endpoint,com.cs.jeff.restapi.filter</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Jersey REST Service</servlet-name>
+    <url-pattern>/V1/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>HttpRequestHandler</display-name>
+    <servlet-name>HttpRequestHandler</servlet-name>
+    <servlet-class>com.cs.jeff.restapi.servlet.HttpRequestHandler</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HttpRequestHandler</servlet-name>
+    <url-pattern>/api</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>HttpResponseStatus</display-name>
+    <servlet-name>HttpResponseStatus</servlet-name>
+    <servlet-class>com.cs.jeff.restapi.servlet.HttpResponseStatus</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HttpResponseStatus</servlet-name>
+    <url-pattern>/HttpResponseStatus</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GetJSONResponse</display-name>
+    <servlet-name>GetJSONResponse</servlet-name>
+    <servlet-class>com.cs.jeff.restapi.servlet.GetJSONResponse</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetJSONResponse</servlet-name>
+    <url-pattern>/GetJSONResponse</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>HTTPMethodHandler</display-name>
+    <servlet-name>HTTPMethodHandler</servlet-name>
+    <servlet-class>com.cs.jeff.restapi.servlet.HTTPMethodHandler</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HTTPMethodHandler</servlet-name>
+    <url-pattern>/api/v1/import-letter-of-credit/issuances/pending</url-pattern>
+  </servlet-mapping>
 </web-app>
